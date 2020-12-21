@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MovieShop.Core.Models.Response.MovieResponseModel>
+<!--> This is the input for this view-->
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!----<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @ViewBag.myproperty 
+</div> -->
+
+
+<div class="card">
+    <div class ="container-fluid bg-light">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+                //call our movie Card from here.
+                //this is a partial view. (a view inside another view that can be reused.)
+                <div class="col-6 col-lg-3 col-sm-4 col-xl-2">
+                    @await Html.PartialAsync("_MovieCard", movie) //view's name and data
+                </div>
+            }
+        </div>
+     </div>
+</div>
